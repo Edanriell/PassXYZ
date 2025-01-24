@@ -1,0 +1,24 @@
+﻿@inherits TestContext
+@namespace PassXYZ.Vault.Tests
+
+<h3>ListViewTests</h3>
+
+@code {
+
+    private RenderFragment _listView => __builder =>
+    {
+        <ListView Items="items">
+            <Header>
+                <div id="list_view_header">@headerContent</div>
+            </Header>
+            <Row Context="item">
+                <a>@item.Name</a>
+            </Row>
+            <Footer>
+                <div id="list_view_footer">@footerContent</div>
+            </Footer>
+        </ListView>
+    };
+
+}
+ 

@@ -1,0 +1,44 @@
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:PassXYZ.Vault.Views"
+       xmlns:res="clr-namespace:PassXYZ.Vault.Properties"
+       xmlns:style="clr-namespace:PassXYZ.Vault.Resources.Styles"
+       Title="PassXYZ.Vault"
+       x:Class="PassXYZ.Vault.AppShell"
+       FlyoutIcon="{FontImage FontFamily=FontAwesomeSolid, 
+        Color={StaticResource Primary}, 
+        Glyph={x:Static style:FontAwesomeSolid.Bars}}"
+       FlyoutBackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Primary}}">
+
+    <TabBar>
+        <ShellContent Title="Login" Route="LoginPage"
+                      Icon="{FontImage FontFamily=FontAwesomeSolid, Color=Black,
+                      Glyph={x:Static style:FontAwesomeSolid.UserAlt}}"
+                      ContentTemplate="{DataTemplate local:LoginPage}" />
+        <ShellContent Title="SignUp" Route="SignUpPage"
+                      Icon="{FontImage FontFamily=FontAwesomeSolid, Color=Black,
+                      Glyph={x:Static style:FontAwesomeSolid.Users}}"
+                      ContentTemplate="{DataTemplate local:SignUpPage}" />
+    </TabBar>
+
+    <FlyoutItem Title="{x:Static res:Resources.menu_id_help}"
+                Icon="{FontImage FontFamily=FontAwesomeSolid, Color=Black,
+        Glyph={x:Static style:FontAwesomeSolid.Question}}">
+        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+    </FlyoutItem>
+    <FlyoutItem x:Name="RootItem" Title="{x:Static res:Resources.Appname}"
+                Icon="{FontImage FontFamily=FontAwesomeSolid, Color=Black, 
+        Glyph={x:Static style:FontAwesomeSolid.Home}}">
+        <ShellContent Route="RootPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="{x:Static res:Resources.menu_id_settings}"
+                Icon="{FontImage FontFamily=FontAwesomeSolid, Color=Black, 
+        Glyph={x:Static style:FontAwesomeSolid.Cog}}">
+        <ShellContent Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
+    </FlyoutItem>
+
+    <MenuItem Text="Logout" Clicked="OnMenuItemClicked"
+              IconImageSource="{FontImage FontFamily=FontAwesomeSolid, Color=Black, 
+        Glyph={x:Static style:FontAwesomeSolid.SignOutAlt}}" />
+
+</Shell>
